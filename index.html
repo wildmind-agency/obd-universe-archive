@@ -40,12 +40,12 @@
       <button id="v1-tab" type="button" role="tab" aria-controls="preview-panel" aria-selected="false" tabindex="-1" data-version="v1">V1</button>
       <button id="v2-tab" type="button" role="tab" aria-controls="preview-panel" aria-selected="true" tabindex="0" data-version="v2">V2</button>
     </div>
-    <div class="meta"><span class="version-note" id="version-note">Living-cloud draft · preview only</span><a id="open-page" class="open" href="./versions/v2/index.html" target="_blank" rel="noopener">Open full page ↗</a><button id="copy-link" class="copy" type="button">Copy view link</button></div>
+    <div class="meta"><span class="version-note" id="version-note">Pastel-cloud draft · preview only</span><a id="open-page" class="open" href="./versions/v2/index.html?rev=pastel1" target="_blank" rel="noopener">Open full page ↗</a><button id="copy-link" class="copy" type="button">Copy view link</button></div>
   </header>
-  <main class="preview" id="preview-panel" role="tabpanel" aria-labelledby="v2-tab"><iframe id="preview-frame" src="./versions/v2/index.html" title="OBD Universe V2 landing page" allow="autoplay; fullscreen"></iframe></main>
+  <main class="preview" id="preview-panel" role="tabpanel" aria-labelledby="v2-tab"><iframe id="preview-frame" src="./versions/v2/index.html?rev=pastel1" title="OBD Universe V2 landing page" allow="autoplay; fullscreen"></iframe></main>
   <p class="sr-only" id="view-status" role="status" aria-live="polite"></p>
   <script>
-    const versions={v1:{label:'Original offer draft · preview only',title:'OBD Universe V1 landing page'},v2:{label:'Living-cloud draft · preview only',title:'OBD Universe V2 landing page'}};
+    const versions={v1:{label:'Original offer draft · preview only',title:'OBD Universe V1 landing page'},v2:{label:'Pastel-cloud draft · preview only',title:'OBD Universe V2 landing page'}};
     const tabs=[...document.querySelectorAll('[data-version]')];
     const frame=document.querySelector('#preview-frame');
     const panel=document.querySelector('#preview-panel');
@@ -54,7 +54,7 @@
     const status=document.querySelector('#view-status');
     function show(version,updateUrl=true){
       const v=versions[version]?version:'v2';
-      const src=`./versions/${v}/index.html`;
+      const src=`./versions/${v}/index.html${v==='v2'?'?rev=pastel1':''}`;
       tabs.forEach(tab=>{const active=tab.dataset.version===v;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1});
       panel.setAttribute('aria-labelledby',`${v}-tab`);
       note.textContent=versions[v].label;
