@@ -1,0 +1,18 @@
+/* Independent draft cutouts; swap each source without changing page composition. */
+.floater:has(.character){aspect-ratio:2/3;overflow:visible}
+.floater:has(.character.landscape){aspect-ratio:6/5}
+.character{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 20px 16px #392d4260);animation:float 9s ease-in-out infinite}
+.hero-alien .character{animation-delay:-1s}
+.hero-shoe .character{animation-delay:-2s}
+.hero-burger .character{animation-delay:-4s}
+.hero-giraffe .character{animation-delay:-3s}
+.hero-planet .character{animation-delay:-7s}
+.scene-product .character{animation-delay:-3s}
+.scene-crazy .character{animation-delay:-6s}
+.scene-cinema .character{animation-delay:-5s}
+.scene-creator .character{animation-delay:-2s}
+.scene-universe .character{animation-delay:-4s}
+.lead-object .character{animation-delay:-6s}
+.course-planet .character{animation-delay:-8s}
+body.motion-paused .character{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.character{animation:none}}
