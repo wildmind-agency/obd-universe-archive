@@ -1,0 +1,86 @@
+/* V3 scene graph: L0 fixed atmosphere; within every chapter L1 copy/media,
+   L2 alpha cloud crossings; L3 cutout creations; L4 interactive utility. */
+html{background:#d9d8e8}
+body{background:transparent;overflow-x:clip;font-family:'IBM Plex Sans Hebrew',Arial,sans-serif}
+.hero h1,.scene h3,.portal-intro h2,.possibility-note h2,.lead-copy h2,.credits h2,.course h2{font-family:'Noto Serif Hebrew',serif;font-weight:700;letter-spacing:-.045em;line-height:1.15}
+.hero h1{font-weight:800;line-height:1.08}
+.scene-copy p,.hero-description,.lead-copy>p{font-family:'IBM Plex Sans Hebrew',Arial,sans-serif;line-height:1.78}
+.en,.chapter,.eyebrow,.brand{font-family:'Space Grotesk',sans-serif}
+main{overflow:visible;display:flow-root}
+.world{position:fixed;inset:0;z-index:-1;background:#d9d8e8 url('./assets/obd-universe-clouds.png') center/cover no-repeat;pointer-events:none;overflow:hidden}
+.v3-atmosphere{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1}
+.world .sky-back{inset:-8%;opacity:.19;mix-blend-mode:normal;mask-image:radial-gradient(ellipse 65% 38% at 20% 75%,#000,transparent);animation:cloud-breathe 32s ease-in-out infinite alternate}
+.world .sky-front{inset:-8%;opacity:.17;mix-blend-mode:normal;mask-image:radial-gradient(ellipse 57% 41% at 78% 28%,#000,transparent);animation:cloud-drift 41s ease-in-out infinite alternate-reverse}
+.world .light-wash{opacity:.28}
+.motion-paused .world .sky-layer,.motion-paused .world .light-wash,.v3-static .world .sky-layer,.v3-static .world .light-wash{animation-play-state:paused!important}
+.world:after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,#ffe2eb32,#f1d9f222 50%,#d2e9fb31);pointer-events:none}
+.v3-static .v3-atmosphere{display:none}
+.motion-paused .v3-chapter *, .v3-static .v3-chapter *{animation-play-state:paused!important}
+.v3-chapter{isolation:isolate;overflow:visible;background:transparent}
+.hero{min-height:100dvh;height:auto;max-height:none;overflow:visible;background:transparent;padding-bottom:7rem}
+.hero-copy,.hero-avatar,.scene-inner{z-index:1}
+.hero-copy{pointer-events:auto}
+.hero-copy .button{position:relative;z-index:4}
+.hero-orbit{z-index:0}
+.hero-floor,.scene-mist,.lead-cloud{display:none}
+.v3-chapter .floater{z-index:3}
+.v3-chapter .floater{display:none}
+.lead-object,.course-planet{display:none}
+.v3-chapter .hero-avatar{z-index:1}
+.v3-chapter .scene-copy,.v3-chapter .film-composition{z-index:auto}
+.scene-inner{z-index:1}
+.scene:focus-within .scene-inner,.scene:has(.film-shell:hover) .scene-inner{z-index:4}
+.scene,.scene:nth-child(2n),.scene-system,.scene-crazy,.scene-cinema,.scene-creator,.scene-universe{background:transparent}
+.scene-crazy,.scene-universe{color:#211b3c}
+.scene-crazy .chapter,.scene-crazy .format-label,.scene-crazy h3 em,.scene-universe .chapter,.scene-universe .format-label,.scene-universe h3 em{color:#4e358e}
+.scene-crazy p,.scene-crazy .use-case,.scene-crazy figcaption,.scene-crazy figcaption small,.scene-universe p,.scene-universe .use-case,.scene-universe figcaption,.scene-universe figcaption small{color:#332d45}
+.scene-crazy .use-case,.scene-universe .use-case{border-color:#4e358e55}
+.scene-crazy .film-composition:before,.scene-universe .film-composition:before{border-color:#4e358e55}
+.scene{min-height:850px}
+.film-shell{box-shadow:0 45px 85px -42px #242038a1,0 0 0 1px #ffffff55;clip-path:ellipse(49% 47% at 50% 50%);border-radius:40% 53% 48% 48%;overflow:hidden}
+.film-controls{padding:25px 11% 10px;z-index:5}
+.film-composition figcaption{padding-inline:7%}
+.v3-wisp{position:absolute;pointer-events:none;z-index:2;aspect-ratio:3/2;background:url('./assets/clouds/l2-cloud-pocket.png') center/contain no-repeat;opacity:.74;filter:blur(2px) saturate(.85);-webkit-mask-image:radial-gradient(ellipse 64% 61% at 49% 54%,#000 52%,#000a 68%,transparent 86%);mask-image:radial-gradient(ellipse 64% 61% at 49% 54%,#000 52%,#000a 68%,transparent 86%);will-change:transform}
+.v3-wisp--hero{left:-9%;top:55%;width:clamp(280px,44vw,600px)}
+.v3-wisp--product{left:-3%;top:51%;width:clamp(210px,31vw,420px)}
+.v3-wisp--system{left:6%;top:60%;width:clamp(210px,30vw,410px);opacity:.66}
+.v3-wisp--cinema{left:1%;top:31%;width:clamp(250px,36vw,480px);opacity:.69}
+.film-shell:after{box-shadow:inset 0 0 38px 6px #e7e5ef55;z-index:1}
+.preview-ribbon,.header,.experience-controls,.skip{z-index:40}
+.form-card{z-index:5}
+.hero .dive-link{z-index:4}
+.scene .scene-object{filter:drop-shadow(0 26px 22px #25263c88)}
+.scene-object .character,.hero .floater .character{animation-duration:13s}
+.lead-section{background:linear-gradient(90deg,#e9e5f5c9,#e2f0ebb7)}
+.possibility-note,.credits,.course,.footer{position:relative;z-index:1}
+.v3-creation{position:absolute;display:block;pointer-events:none;transform-origin:50% 70%;will-change:transform,opacity;max-width:none;z-index:3}
+.v3-creation[data-layer="L1"]{z-index:1}
+.v3-creation img{display:block;width:100%;height:auto;filter:drop-shadow(0 22px 16px #3c2f5d59)}
+.v3-creation--ink-ninja{left:9%;top:61%;width:clamp(125px,15vw,245px)}
+.v3-creation--product-vessel{left:2%;top:42%;width:clamp(125px,16vw,250px)}
+.v3-creation--system-gyroscope{right:6%;top:46%;width:clamp(140px,16vw,245px)}
+.v3-creation--distant-ufo{left:16%;top:18%;width:clamp(72px,7vw,108px)}
+.v3-creation--basketball-breakthrough{left:3%;top:45%;width:clamp(135px,16vw,250px)}
+.v3-creation--cinema-sailcraft{left:4%;top:18%;width:clamp(170px,20vw,300px)}
+.v3-creation--cyber-llama{right:2%;top:24%;width:clamp(140px,14vw,215px)}
+.v3-creation--universe-terrarium{left:2%;top:50%;width:clamp(180px,19vw,290px)}
+.v3-creation--distant-ufo img{filter:drop-shadow(0 8px 6px #655d8e55)}
+.v3-creation--cinema-sailcraft img{filter:drop-shadow(0 12px 11px #4c526155)}
+.v3-creation--cyber-llama:after{content:'';position:absolute;bottom:4%;left:28%;width:48%;height:5%;border-radius:50%;background:#30213c66;filter:blur(6px);z-index:-1}
+.v3-impact-stage{position:absolute;left:1%;top:38%;width:clamp(210px,30vw,430px);aspect-ratio:1;z-index:4;pointer-events:none;opacity:var(--impact,0);transform:scale(calc(.7 + var(--impact,0)*.35));transform-origin:50% 50%}
+.v3-impact-membrane{position:absolute;inset:13%;border:2px solid #bbffffbb;border-radius:50%;box-shadow:0 0 0 9px #c7f9fa19,inset -20px -20px 30px #8addff22;transform:rotate(-18deg) scale(calc(1 - var(--impact,0)*.28));opacity:calc(1 - var(--impact,0)*.72)}
+.v3-shard{position:absolute;width:13%;height:24%;background:linear-gradient(125deg,#ecffffdd 5%,#6bd4ef88 48%,#503a9bcc 51%,#c7f8ffcc 100%);clip-path:polygon(7% 1%,100% 24%,49% 100%);filter:drop-shadow(4px 9px 4px #160e4e66);transform-origin:50% 10%}
+.v3-shard-1{left:8%;top:8%;transform:rotate(-43deg) scale(.78)}.v3-shard-2{left:41%;top:2%;transform:rotate(8deg) scale(.57)}.v3-shard-3{left:74%;top:18%;transform:rotate(64deg) scale(1.04)}.v3-shard-4{left:80%;top:58%;transform:rotate(107deg) scale(.7)}.v3-shard-5{left:48%;top:76%;transform:rotate(160deg) scale(.6)}.v3-shard-6{left:8%;top:66%;transform:rotate(232deg) scale(.82)}
+.v3-impact-word{position:absolute;left:42%;top:74%;font:italic 900 clamp(24px,4vw,65px)/1 Arial,sans-serif;color:#d5fbf7;-webkit-text-stroke:2px #291d50;text-shadow:4px 6px 0 #fb7777;transform:rotate(-14deg);white-space:nowrap}
+@media(max-width:910px){.scene,.scene-system,.scene-crazy,.scene-cinema,.scene-creator,.scene-universe{min-height:720px}.scene-inner,.scene-product .scene-inner,.scene-system .scene-inner,.scene-crazy .scene-inner,.scene-cinema .scene-inner,.scene-creator .scene-inner,.scene-universe .scene-inner{grid-template-columns:1fr 1fr}.scene-creator .scene-copy,.scene-creator .film-composition{grid-column:auto;grid-row:auto}}
+@media(max-width:720px){.hero{min-height:920px;padding-bottom:0}.hero-copy{z-index:1}.hero-avatar{z-index:1}.scene,.scene-system,.scene-crazy,.scene-cinema,.scene-creator,.scene-universe{min-height:0;padding:65px 0 140px}.scene-inner,.scene-product .scene-inner,.scene-system .scene-inner,.scene-crazy .scene-inner,.scene-cinema .scene-inner,.scene-creator .scene-inner,.scene-universe .scene-inner{display:grid;grid-template-columns:1fr;gap:35px}.scene-creator .scene-copy,.scene-creator .film-composition{grid-column:1;grid-row:auto}.scene .scene-copy,.scene:nth-child(even) .scene-copy{order:1}.scene .film-composition,.scene:nth-child(even) .film-composition{order:2;margin:0 auto;width:min(82%,340px)}.film-controls{padding:18px 5% 8px}.scene h3{font-size:clamp(32px,9vw,42px)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.v3-wisp{will-change:auto}.v3-atmosphere{display:none}.v3-chapter *{animation:none!important;transition:none!important}}
+@media(max-width:910px){.v3-creation--ink-ninja{left:3%;width:19vw}.v3-creation--product-vessel{left:0;width:18vw}.v3-creation--system-gyroscope{right:1%;width:21vw}.v3-creation--distant-ufo{left:15%;width:9vw}.v3-creation--basketball-breakthrough{left:0;width:19vw}.v3-creation--cinema-sailcraft{left:1%;width:23vw}.v3-creation--cyber-llama{right:0;width:17vw}.v3-creation--universe-terrarium{left:1%;width:23vw}}
+@media(max-width:720px){.v3-atmosphere{opacity:1}.v3-creation--ink-ninja{left:2%;top:68%;width:31vw}.v3-creation--product-vessel{left:1%;top:70%;width:29vw}.v3-creation--system-gyroscope{right:1%;top:61%;width:30vw}.v3-creation--distant-ufo{left:12%;top:14%;width:13vw}.v3-creation--basketball-breakthrough{left:3%;top:72%;width:31vw}.v3-creation--cinema-sailcraft{left:2%;top:50%;width:34vw}.v3-creation--cyber-llama{right:1%;top:54%;width:27vw}.v3-creation--universe-terrarium{left:1%;top:65%;width:35vw}.v3-creation img{filter:drop-shadow(0 12px 9px #3c2f5d55)}}
+@media(prefers-reduced-motion:reduce){.v3-creation{will-change:auto}}
+@media(max-width:720px){
+ .v3-wisp--hero{left:-22%;top:70%;width:72vw}
+ .v3-wisp--product{left:-18%;top:70%;width:68vw}
+ .v3-wisp--system{left:43%;top:73%;width:62vw}
+ .v3-wisp--cinema{left:-14%;top:62%;width:72vw}
+}
