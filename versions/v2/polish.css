@@ -1,11 +1,5 @@
-/* A translucent color grade keeps the footage legible as real moving clouds. */
-.cw-stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,#dbaee5 1%,#a8d7ef 47%,#f0c4dc 100%);mix-blend-mode:color;opacity:.58}
-.cw-foreground{opacity:.1}
-.cw-midground{opacity:.1}
 .portal-intro p{color:#281f35;text-shadow:0 1px 16px #f4edf6}
 .scene-copy p{color:#282137}
-.footage-credit{font:400 10px/1.5 'Space Grotesk',sans-serif;opacity:.65;direction:ltr}
-.footage-credit a{text-decoration:underline;text-underline-offset:2px}
 @media(max-width:720px){
   .hero-shoe{display:none}
   .hero-alien{left:1%;width:92px;top:50%}

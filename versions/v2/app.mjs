@@ -1,5 +1,3 @@
-import { initCloudWorld } from './cloud-world.mjs';
-
 // DRAFT CONTENT: swap sources/posters here; all six placements are provisional.
 // No analytics, lead delivery, email or scheduling service is connected.
 export const media = {
@@ -218,9 +216,4 @@ if (typeof document !== 'undefined') {
     });
   }
   syncMotion();
-  initCloudWorld({
-    host: document.querySelector('#cloud-world'),
-    getPaused: () => document.body.classList.contains('motion-paused'),
-    pauseElement: motionButton
-  });
 }

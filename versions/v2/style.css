@@ -24,8 +24,7 @@ main{overflow:hidden}
 @media(max-width:720px){.hero{min-height:850px}.hero-burger{bottom:7%;right:-4%;width:100px}.hero-giraffe{top:8%;right:-2%;width:75px}.hero-shoe{top:8%;left:-4%;width:90px}.hero-avatar{bottom:8%}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.js .reveal{opacity:1;translate:none}[data-depth]{--parallax:0px!important}}
 
-/* OBD art direction: editorial type and six different film compositions.
-   Cloud rendering belongs to cloud-world.css; these rules leave .cw-* alone. */
+/* OBD art direction: editorial type, six film compositions, and the original animated pastel cloud world. */
 body{font-family:'IBM Plex Sans Hebrew',sans-serif;background:#e6e1f1;color:var(--ink)}
 .wrap{width:min(1320px,calc(100% - clamp(40px,8vw,144px)))}
 .en,.brand,.chapter,.format-label,.credits-track>span{font-family:'Space Grotesk',sans-serif}
