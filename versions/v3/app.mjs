@@ -1,4 +1,4 @@
-import { initCloudWorld } from './cloud-world.mjs?v=pocket1';
+import { initCloudWorld } from './cloud-world.mjs?v=hero10';
 
 // DRAFT CONTENT: swap sources/posters here; all six placements are provisional.
 // No analytics, lead delivery, email or scheduling service is connected.

@@ -41,9 +41,9 @@
       <button id="v2-tab" type="button" role="tab" aria-controls="preview-panel" aria-selected="false" tabindex="-1" data-version="v2">V2</button>
       <button id="v3-tab" type="button" role="tab" aria-controls="preview-panel" aria-selected="true" tabindex="0" data-version="v3">V3</button>
     </div>
-    <div class="meta"><span class="version-note" id="version-note">Depth-scene draft · form preview only</span><a id="open-page" class="open" href="./versions/v3/index.html?rev=cloud-pocket1" target="_blank" rel="noopener">Open full page ↗</a><button id="copy-link" class="copy" type="button">Copy view link</button></div>
+    <div class="meta"><span class="version-note" id="version-note">Depth-scene draft · form preview only</span><a id="open-page" class="open" href="./versions/v3/index.html?rev=hero10" target="_blank" rel="noopener">Open full page ↗</a><button id="copy-link" class="copy" type="button">Copy view link</button></div>
   </header>
-  <main class="preview" id="preview-panel" role="tabpanel" aria-labelledby="v3-tab"><iframe id="preview-frame" src="./versions/v3/index.html?rev=cloud-pocket1" title="OBD Universe V3 landing page" allow="autoplay; fullscreen"></iframe></main>
+  <main class="preview" id="preview-panel" role="tabpanel" aria-labelledby="v3-tab"><iframe id="preview-frame" src="./versions/v3/index.html?rev=hero10" title="OBD Universe V3 landing page" allow="autoplay; fullscreen"></iframe></main>
   <p class="sr-only" id="view-status" role="status" aria-live="polite"></p>
   <script>
     const versions={v1:{label:'Original offer draft · preview only',title:'OBD Universe V1 landing page'},v2:{label:'Pastel-cloud draft · preview only',title:'OBD Universe V2 landing page'},v3:{label:'Depth-scene draft · form preview only',title:'OBD Universe V3 landing page'}};
@@ -55,7 +55,7 @@
     const status=document.querySelector('#view-status');
     function show(version,updateUrl=true){
       const v=versions[version]?version:'v3';
-      const src=`./versions/${v}/index.html${v==='v2'?'?rev=pastel1':v==='v3'?'?rev=cloud-pocket1':''}`;
+      const src=`./versions/${v}/index.html${v==='v2'?'?rev=pastel1':v==='v3'?'?rev=hero10':''}`;
       tabs.forEach(tab=>{const active=tab.dataset.version===v;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1});
       panel.setAttribute('aria-labelledby',`${v}-tab`);
       note.textContent=versions[v].label;

@@ -1,4 +1,4 @@
-const cloudVideo = new URL('./assets/clouds/pastel-cloud-journey.mp4', import.meta.url).href;
+// The cloud photograph is stationary; chapter objects retain their existing motion.
 
 const creations = [
   { id: 'ink-ninja', file: 'ink-ninja-v2.webp', chapter: '.hero', layer: 'L1', movement: 'peek' },
@@ -32,9 +32,9 @@ export function initCloudWorld({ host, getPaused = () => false, pauseElement } =
   video.append(source);
   // Keep the two inexpensive CSS cloud planes from the pastel preview over
   // the single video. Their differing drift makes the atmosphere evolve.
-  host.prepend(video);
-  const chapters = [...document.querySelectorAll('.hero, .scene')];
-  const objects = creations.map(spec => {
+  // No background video is mounted or decoded.
+  const chapters = [...document.querySelectorAll('.scene')];
+  const objects = creations.filter(spec => spec.chapter !== '.hero').map(spec => {
     const chapter = document.querySelector(spec.chapter);
     if (!chapter) throw new Error(`Missing V3 chapter for ${spec.id}`);
     const element = document.createElement('span');
@@ -73,7 +73,7 @@ export function initCloudWorld({ host, getPaused = () => false, pauseElement } =
     chapter.append(element);
     return { ...spec, chapter, element, effect };
   });
-  const wisps = cloudPockets.map(spec => {
+  const wisps = cloudPockets.filter(spec => spec.chapter !== '.hero').map(spec => {
     const chapter = document.querySelector(spec.chapter);
     const wisp = document.createElement('div');
     wisp.className = `v3-wisp v3-wisp--${spec.id}`;
@@ -97,13 +97,7 @@ export function initCloudWorld({ host, getPaused = () => false, pauseElement } =
   const paused = () => fallback() || getPaused() || document.hidden;
   function sync() {
     document.body.classList.toggle('v3-static', fallback());
-    if (paused()) video.pause();
-    else {
-      if (!started) { source.src = cloudVideo; video.load(); started = true; }
-      video.play().catch((error) => {
-        if (error.name !== 'AbortError') { failed = true; sync(); }
-      });
-    }
+    video.pause();
     request();
   }
   function render() {
